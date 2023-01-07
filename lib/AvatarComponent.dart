@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:my_app/Constants.dart';
 
 class AvatarComponent extends StatelessWidget {
   const AvatarComponent({super.key, required this.avatar});
@@ -9,16 +10,15 @@ class AvatarComponent extends StatelessWidget {
     return Container(
       width: 100,
       height: 100,
-      decoration: const BoxDecoration(
+      decoration: BoxDecoration(
         image: DecorationImage(
-            image: AssetImage("assets/images/player-avatar-bg.png"),
+            image: AssetImage("assets/images/${icons['AVATAR']?['playerBG']}"),
             fit: BoxFit.cover),
       ),
       child: Container(
           height: MediaQuery.of(context).size.height,
           width: MediaQuery.of(context).size.width,
           margin: const EdgeInsets.only(bottom: 20),
-          // child: Image(image: AssetImage("assets/images/avatars/$avatar.png")),
           child: Image(image: AssetImage("assets/images/avatars/$avatar.png"))),
     );
   }

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:my_app/AvatarComponent.dart';
+import 'package:my_app/Constants.dart';
 
 class VersusWidget extends StatelessWidget {
   const VersusWidget({super.key});
@@ -23,7 +24,7 @@ class VersusWidget extends StatelessWidget {
                 const Text("0")
               ],
             ),
-            const Image(image: AssetImage("assets/images/vs-icon.png")),
+            Image(image: AssetImage(icons["VERSUS"]?["vs"])),
             Row(
               children: [
                 const Text("0"),

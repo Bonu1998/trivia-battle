@@ -21,9 +21,22 @@ class MyApp extends StatelessWidget {
       routes: {
         '/splash': (context) => const Splash(),
         '/': (context) => const Home(),
-        '/avatar': (context) => const VersusWidget()
+        // '/avatar': (context) => const VersusWidget()
       },
-      // theme: ThemeData(fontFamily: 'Prompt-SemiBold'),
+      theme: ThemeData(
+        fontFamily: "Prompt",
+        appBarTheme: AppBarTheme(
+          titleTextStyle: ThemeData.light()
+              .textTheme
+              .copyWith(
+                  headline6: const TextStyle(
+                      color: Colors.white,
+                      fontWeight: FontWeight.bold,
+                      fontFamily: "Prompt-SemiBold",
+                      fontSize: 20.0))
+              .headline6,
+        ),
+      ),
       debugShowCheckedModeBanner: false,
     );
   }
