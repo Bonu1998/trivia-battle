@@ -6,6 +6,14 @@ const Map<String, Map> icons = {
     "headerStar": "header-star.png",
     "headerDiamond": "header-diamong.png",
   },
+  "REGISTER": {
+    "titleUnderline": "register-title-underline.png",
+    "footer": "register-footer.png",
+    "inputName": "register-name.png",
+    "selectState": "register-state.png",
+    "selectAvatar": "register-change-avatar.png",
+    "submit": "register-submit.png"
+  },
   "BUTTON": {
     "bubbles": "circles.png",
   },

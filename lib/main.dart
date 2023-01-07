@@ -7,6 +7,7 @@ import 'package:my_app/AvatarComponent.dart';
 import 'package:my_app/Home.dart';
 import 'package:my_app/Splash.dart';
 import 'package:my_app/VersusWidget.dart';
+import 'package:my_app/register.dart';
 
 void main() {
   runApp(const MyApp());
@@ -17,11 +18,11 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      initialRoute: '/',
+      initialRoute: '/register',
       routes: {
         '/splash': (context) => const Splash(),
-        '/': (context) => const Home(),
-        // '/avatar': (context) => const VersusWidget()
+        '/home': (context) => const Home(),
+        '/register': (context) => const Register(),
       },
       theme: ThemeData(
         fontFamily: "Prompt",
