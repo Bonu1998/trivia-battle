@@ -41,7 +41,7 @@ class Menu extends StatelessWidget {
                   label: "Daily Battle",
                   tagLine: "Make your state proud",
                   colors: const <Color>[Color(0xffd1664d), Color(0xffc64728)],
-                  logo: icons['MENU']!?['dailyBattle'],
+                  logo: icons['MENU']?['dailyBattle'],
                   handler: () => print("Daily Battle"),
                 )),
             SizedBox(

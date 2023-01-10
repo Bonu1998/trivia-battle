@@ -8,13 +8,16 @@ class Register extends StatelessWidget {
 
   Widget header(context) {
     return Container(
-      height: MediaQuery.of(context).size.height * 0.09,
+      height: MediaQuery.of(context).size.height * 0.1,
       width: MediaQuery.of(context).size.width,
       alignment: Alignment.center,
-      color: const Color(0xff162e75),
+      // color: const Color(0xff162e75),
       child: Column(mainAxisAlignment: MainAxisAlignment.center, children: [
-        Text("Let's be Personal",
-            style: Theme.of(context).appBarTheme.titleTextStyle),
+        const Text("Let's be Personal",
+            style: TextStyle(
+                color: Colors.white,
+                fontSize: 30,
+                fontFamily: "Prompt-SemiBold")),
         Image.asset(
           "assets/images/${icons['REGISTER']?['titleUnderline']}",
         )
@@ -35,8 +38,11 @@ class Register extends StatelessWidget {
   Widget imputName(context) {
     return Column(
       children: [
-        Text("What should we call you?",
-            style: Theme.of(context).appBarTheme.titleTextStyle),
+        const Text("What should we call you?",
+            style: TextStyle(
+                color: Color(0xffffd426),
+                fontSize: 20,
+                fontFamily: "Prompt-SemiBold")),
         Container(
           height: (MediaQuery.of(context).size.height) * 0.07,
           width: (MediaQuery.of(context).size.width) * 0.8,
@@ -73,8 +79,11 @@ class Register extends StatelessWidget {
   Widget selectState(context) {
     return Column(
       children: [
-        Text("Which state you belong to?",
-            style: Theme.of(context).appBarTheme.titleTextStyle),
+        const Text("Which state you belong to?",
+            style: TextStyle(
+                color: Color(0xffeb9f28),
+                fontSize: 20,
+                fontFamily: "Prompt-SemiBold")),
         Container(
           height: (MediaQuery.of(context).size.height) * 0.07,
           width: (MediaQuery.of(context).size.width) * 0.8,
@@ -111,8 +120,11 @@ class Register extends StatelessWidget {
   Widget selectAvatar(context) {
     return Column(
       children: [
-        Text("Select your look",
-            style: Theme.of(context).appBarTheme.titleTextStyle),
+        const Text("Select your look",
+            style: TextStyle(
+                color: Color(0xff2ab5ba),
+                fontSize: 20,
+                fontFamily: "Prompt-SemiBold")),
         Container(
           height: (MediaQuery.of(context).size.height) * 0.1,
           width: (MediaQuery.of(context).size.width) * 0.8,
@@ -146,7 +158,7 @@ class Register extends StatelessWidget {
     );
   }
 
-  Widget login(context) {
+  Widget loginButton(context) {
     return Container(
       height: MediaQuery.of(context).size.height * 0.14,
       width: MediaQuery.of(context).size.width,
@@ -174,9 +186,6 @@ class Register extends StatelessWidget {
   Widget build(BuildContext context) {
     return SafeArea(
         child: Scaffold(
-      appBar: AppBar(
-        flexibleSpace: header(context),
-      ),
       body: Container(
         width: MediaQuery.of(context).size.width,
         height: MediaQuery.of(context).size.height,
@@ -190,12 +199,19 @@ class Register extends StatelessWidget {
         child: Column(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              Text("dadasdasdasdasdasdasd",
-                  style: Theme.of(context).appBarTheme.titleTextStyle),
+              header(context),
+              const Text(
+                "Register User Description",
+                style: TextStyle(
+                    color: Colors.white,
+                    fontSize: 16,
+                    fontFamily: "Prompt-SemiBold"),
+                textAlign: TextAlign.center,
+              ),
               imputName(context),
               selectState(context),
               selectAvatar(context),
-              login(context),
+              loginButton(context),
               // Image.asset(
               //   "assets/images/${icons['REGISTER']?['footer']}",
               // )

@@ -30,5 +30,25 @@ const Map<String, Map> icons = {
   "AVATAR": {
     "playerBG": "player-avatar-bg.png",
     "opponentBG": "opponent-avatar-bg.png"
+  },
+  "EDITIONS": {
+    "geography": "trivia-pack-geography.png",
+    "geography-level": "trivia-pack-geography-level.png",
+    "geography-label": "trivia-pack-geography-stripe.png",
+    "animals": "trivia-pack-animals.png",
+    "animals-level": "trivia-pack-animals-level.png",
+    "animals-label": "trivia-pack-animals-stripe.png",
+    "movies": "trivia-pack-movies.png",
+    "movies-level": "trivia-pack-movies-level.png",
+    "movies-label": "trivia-pack-movies-stripe.png",
+    "history": "trivia-pack-history.png",
+    "history-level": "trivia-pack-history-level.png",
+    "history-label": "trivia-pack-history-stripe.png",
+    "sports": "trivia-pack-sports.png",
+    "sports-level": "trivia-pack-sports-level.png",
+    "sports-label": "trivia-pack-sports-stripe.png",
+    "science": "trivia-pack-science.png",
+    "science-level": "trivia-pack-science-level.png",
+    "science-label": "trivia-pack-science-stripe.png",
   }
 };

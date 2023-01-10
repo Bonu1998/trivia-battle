@@ -4,6 +4,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:my_app/AvatarComponent.dart';
+import 'package:my_app/Editions.dart';
 import 'package:my_app/Home.dart';
 import 'package:my_app/Splash.dart';
 import 'package:my_app/VersusWidget.dart';
@@ -23,6 +24,7 @@ class MyApp extends StatelessWidget {
         '/splash': (context) => const Splash(),
         '/home': (context) => const Home(),
         '/register': (context) => const Register(),
+        '/editions': (context) => Editions()
       },
       theme: ThemeData(
         fontFamily: "Prompt",

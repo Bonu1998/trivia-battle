@@ -9,11 +9,11 @@ class AvatarComponent extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       width: 100,
-      height: 100,
+      height: MediaQuery.of(context).size.height,
       decoration: BoxDecoration(
         image: DecorationImage(
             image: AssetImage("assets/images/${icons['AVATAR']?['playerBG']}"),
-            fit: BoxFit.cover),
+            fit: BoxFit.contain),
       ),
       child: Container(
           height: MediaQuery.of(context).size.height,
