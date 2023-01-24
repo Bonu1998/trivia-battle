@@ -4,7 +4,7 @@ const Map<String, Map> icons = {
     "headerMenu": "header-menu.png",
     "headerBack": "header-back.png",
     "headerStar": "header-star.png",
-    "headerDiamond": "header-diamong.png",
+    "headerDiamond": "header-diamond.png",
   },
   "REGISTER": {
     "titleUnderline": "register-title-underline.png",

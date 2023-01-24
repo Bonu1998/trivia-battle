@@ -6,7 +6,7 @@ import 'package:my_app/constants.dart';
 class Register extends StatelessWidget {
   const Register({super.key});
 
-  Widget header(context) {
+  static Widget header(context) {
     return Container(
       height: MediaQuery.of(context).size.height * 0.1,
       width: MediaQuery.of(context).size.width,
