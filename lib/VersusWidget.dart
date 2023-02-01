@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:my_app/AvatarComponent.dart';
-import 'package:my_app/Constants.dart';
+import 'package:my_app/constants.dart';
 
 class VersusWidget extends StatelessWidget {
   const VersusWidget({super.key});

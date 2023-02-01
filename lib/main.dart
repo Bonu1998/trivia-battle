@@ -4,15 +4,18 @@
 
 import 'package:flutter/material.dart';
 import 'package:my_app/AvatarComponent.dart';
-import 'package:my_app/Editions.dart';
-import 'package:my_app/Header.dart';
+import 'package:my_app/StateScoreList.dart';
+import 'package:my_app/constants.dart';
+import 'package:my_app/editions.dart';
 import 'package:my_app/Home.dart';
 import 'package:my_app/Splash.dart';
 import 'package:my_app/VersusWidget.dart';
-import 'package:my_app/constants.dart';
-import 'package:my_app/daily_battle.dart';
+import 'package:my_app/menu.dart';
 import 'package:my_app/register.dart';
 import 'package:my_app/timer.dart';
+
+import 'daily_battle.dart';
+import 'model/start_score.dart';
 
 void main() {
   runApp(const MyApp());
@@ -34,15 +37,22 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    List<StateScore> scores = GetStateScore();
     return MaterialApp(
-      initialRoute: '/home',
+      initialRoute: '/register',
       routes: {
         '/splash': (context) => const Splash(),
         '/home': (context) => const Home(),
         '/register': (context) => const Register(),
         '/editions': (context) => Editions(),
-        '/poc': (context) => DailyBattle(),
-        '/timer': (context) => const CustomTimer()
+        '/listItems': (context) => Center(child: StateScoreList(0.8, 0.8, scores)),
+        '/daily': (context) => DailyBattle(),
+        // '/menu': (context) => const Menu()
+        // '/listItems': (context) => LayoutBuilder(
+        //     builder: (context, constraints) {
+        //       return NumberIcon(constraints.maxWidth, constraints.maxHeight);
+        //     }
+        // )
       },
       // home: SafeArea(
       //     child: Scaffold(
@@ -67,5 +77,36 @@ class MyApp extends StatelessWidget {
       ),
       debugShowCheckedModeBanner: false,
     );
+  }
+
+  List<StateScore> GetStateScore() {
+    var scores = [
+      {
+        "state": "California",
+        "score": 90
+      },
+      {
+        "state": "Ohio",
+        "score": 120
+      },
+      {
+        "state": "NY",
+        "score": 230
+      },
+      {
+        "state": "Texas",
+        "score": 1230
+      },
+      {
+        "state": "Pensyl",
+        "score": 1230
+      },
+    ];
+    List<StateScore> stateScores = [];
+    for(int i = 0; i < scores.length; i ++) {
+      stateScores.add(StateScore.fromJson(scores[i]));
+    }
+    print("StateScores: ${stateScores}");
+    return stateScores;
   }
 }

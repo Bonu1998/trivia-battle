@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:my_app/Constants.dart';
+import 'package:my_app/constants.dart';
 
 class AvatarComponent extends StatelessWidget {
   const AvatarComponent({super.key, required this.avatar});

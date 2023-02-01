@@ -23,7 +23,6 @@ class _DailyBattle extends State<DailyBattle> {
               setState(() {
                 flag = "Rounds";
               });
-              ;
             },
             child: const Text("Finding Opponent")),
       ),

@@ -146,6 +146,8 @@ class Register extends StatelessWidget {
                 height: MediaQuery.of(context).size.height * 0.06,
                 width: MediaQuery.of(context).size.width * 0.5,
                 child: AnimatedButton(
+                  height: MediaQuery.of(context).size.height * 0.06,
+                  width: MediaQuery.of(context).size.width * 0.5,
                   label: "Change",
                   tagLine: "",
                   colors: const <Color>[Color(0xff2ab8bd), Color(0xff0b8fa3)],
@@ -172,6 +174,8 @@ class Register extends StatelessWidget {
         height: MediaQuery.of(context).size.height * 0.08,
         width: MediaQuery.of(context).size.width * 0.65,
         child: AnimatedButton(
+          height: MediaQuery.of(context).size.height * 0.08,
+          width: MediaQuery.of(context).size.width * 0.65,
           label: "That's it!",
           tagLine: "",
           colors: const <Color>[Color(0xffd1664d), Color(0xffce5e44)],

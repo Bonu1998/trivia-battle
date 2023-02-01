@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:my_app/Constants.dart';
+import 'package:my_app/constants.dart';
 
 class AnimatedButton extends StatelessWidget {
   const AnimatedButton(
@@ -8,7 +8,9 @@ class AnimatedButton extends StatelessWidget {
       required this.tagLine,
       required this.colors,
       required this.logo,
-      required this.handler})
+      required this.handler,
+      required this.height,
+      required this.width})
       : super(key: key);
 
   final String label;
@@ -16,11 +18,13 @@ class AnimatedButton extends StatelessWidget {
   final List<Color> colors;
   final String logo;
   final VoidCallback handler;
+  final double height;
+  final double width;
 
   @override
   Widget build(BuildContext context) {
-    double _height = MediaQuery.of(context).size.height;
-    double _width = MediaQuery.of(context).size.width;
+    double _height = height;
+    double _width = width;
 
     return InkWell(
       onTap: handler,
@@ -43,7 +47,8 @@ class AnimatedButton extends StatelessWidget {
                 child: Image(
                   image: AssetImage(
                       "assets/images/${icons['BUTTON']?['bubbles']}"),
-                )),
+                )
+              ),
             Container(
               alignment: Alignment.center,
               // padding: EdgeInsets.symmetric(
@@ -55,12 +60,13 @@ class AnimatedButton extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   SizedBox(
-                    width: 50,
+                    width: _width * 0.2,
                     child: Image(
                       image: AssetImage("assets/images/$logo"),
                       // width: MediaQuery.of(context).size.width * 0.1,
                     ),
                   ),
+                  SizedBox(width: _width * 0.03),
                   Column(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
@@ -68,14 +74,14 @@ class AnimatedButton extends StatelessWidget {
                         label,
                         style: TextStyle(
                             color: Colors.white,
-                            fontSize: _height * 0.04,
+                            fontSize: _height * 0.3,
                             fontFamily: "Prompt-SemiBold"),
                       ),
                       Text(
                         tagLine,
                         style: TextStyle(
                             color: Colors.yellow,
-                            fontSize: _height * 0.02,
+                            fontSize: _height * 0.18,
                             fontFamily: "Prompt-SemiBold"),
                       ),
                     ],
