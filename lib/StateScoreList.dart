@@ -1,121 +1,88 @@
 import 'package:flutter/material.dart';
 
-import 'model/start_score.dart';
+import 'leaderboard.dart';
 
 class StateScoreList extends StatelessWidget {
-  // const Demo({Key? key}) : super(key: key);
-  double heightPercent = 0, widthPercent = 0, height =0, width = 0;
-  List<StateScore> scores = [];
+  double heightPercent = 0, widthPercent = 0, height = 0, width = 0;
+  List<LeaderboardListItem> scores = [];
 
-
-  StateScoreList(double heightPercent, double widthPercent, List<StateScore> scores){
-    this.heightPercent = heightPercent;
-    this.widthPercent = widthPercent;
+  StateScoreList(
+      double height, double width, List<LeaderboardListItem> scores) {
+    this.width = width;
+    this.height = height;
     this.scores = scores;
   }
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: LayoutBuilder(
-        builder: (context, constraints) {
-          width = constraints.maxWidth * widthPercent;
-          height = constraints.maxHeight * heightPercent;
-          return Container(
-            width: this.width,
-            height: this.height,
-            decoration: BoxDecoration(
-                color: Colors.red
-            ),
-            child: ListView.builder(
-                itemCount:scores.length ,
-                itemBuilder: (BuildContext context, int index) {
-                  return ListItem(height, width, 0.1, 1, index);
-                }),
-          );
-        },
+    return Material(
+      child: Container(
+        width: width,
+        height: height,
+        decoration: const BoxDecoration(color: Colors.red),
+        constraints: const BoxConstraints(maxWidth: 500),
+        child: ListView.builder(
+            itemCount: scores.length,
+            itemBuilder: (BuildContext context, int index) {
+              return ListItem(height * 0.1, width, scores[index], index);
+            }),
       ),
     );
   }
 }
 
-
-
 class NumberIcon extends StatelessWidget {
-  // const NumberIcon({Key? key}) : super(key: key);
   int index = 0;
   double parentWidth = 0, parentHeight = 0, height = 0, width = 0;
-  NumberIcon(double parentHeight, double parentWidth, double percentHeight, double percentWidth, int index) {
+  NumberIcon(double height, double width, int index) {
     this.index = index;
-    this.parentWidth = parentWidth;
-    this.parentHeight = parentHeight;
-    this.width = this.parentWidth * percentWidth;
-    this.height = this.parentHeight* percentHeight;
+    this.width = width;
+    this.height = height;
   }
   @override
   Widget build(BuildContext context) {
-    print("parentHeihgt: ${parentHeight}");
-    print("pareentWIdth: ${parentWidth}");
-    return LayoutBuilder(
-          builder: (context, constraints){
-            return Center(
-                child: Container(
-                  width: this.width,
-                  height: this.height,
-                  decoration: BoxDecoration(
-                      color: Colors.yellow,
-                      borderRadius: BorderRadius.circular(80)
-                  ),
-                  child: Center(
-                    child: Text(
-                      "${index + 1}",
-                      style: TextStyle(
-                          fontSize: constraints.minHeight * 0.5,
-                          fontWeight: FontWeight.bold
-                      ),
-                    ),
-                  ),
-                )
-            );
-          },
-        );
-
+    return Container(
+      width: this.width,
+      height: this.height,
+      constraints: const BoxConstraints(maxWidth: 10),
+      decoration: BoxDecoration(
+          color: Colors.yellow, borderRadius: BorderRadius.circular(80)),
+      child: Center(
+        child: Text(
+          // "1",
+          "${index + 1}",
+          style: TextStyle(fontSize: height * 0.5, fontWeight: FontWeight.bold),
+        ),
+      ),
+    );
   }
 }
 
 class ListItem extends StatelessWidget {
-  // const ListItem({Key? key}) : super(key: key);
   double parentHeight = 0, parentWidth = 0, height = 0, width = 0;
+  late LeaderboardListItem leaderboardItem;
   int index = 0;
-  ListItem(double parentHeight, double parentWidth, double heightPercent, double widthPercent, int index) {
-    this.parentWidth = parentWidth;
-    this.parentHeight = parentHeight;
+  ListItem(double height, double width, LeaderboardListItem leaderboardItem,
+      int index) {
     this.index = index;
-    this.height = parentHeight * heightPercent;
-    this.width = parentWidth * widthPercent;
+    this.height = height;
+    this.width = width;
+    this.leaderboardItem = leaderboardItem;
   }
   @override
   Widget build(BuildContext context) {
-    print("parentWidth: ${parentWidth}");
-    print("parentHeight: ${parentHeight}");
     return Container(
       height: this.height,
-      decoration: BoxDecoration(
-        color: Colors.blue
-      ),
+      decoration: BoxDecoration(color: Colors.blue),
       child: Row(
         children: [
           Expanded(
-              flex: 2,
-              child: NumberIcon(height, width, 0.4, 0.12, index)
+              flex: 1, child: NumberIcon(height * 0.4, width * 0.05, index)),
+          SizedBox(
+            width: height * 0.1,
           ),
           Expanded(
-              flex: 3,
-              child: ScoreTableText("California", 20, Colors.white)
-          ),
-          Expanded(
-              flex: 2,
-              child: ScoreTableText("387878", 20, Colors.red)
-          )
+              flex: 3, child: ScoreTableText(leaderboardItem.userName, 20, Colors.white)),
+          Expanded(flex: 2, child: ScoreTableText(leaderboardItem.userScore, 20, Colors.red))
         ],
       ),
     );
@@ -126,7 +93,6 @@ class ScoreTableText extends StatelessWidget {
   double fontSize = 0;
   String text = "";
   Color textColor = Colors.white;
-  // const ScoreTableText({Key? key}) : super(key: key);
   ScoreTableText(String text, double fontSize, Color textColor) {
     this.fontSize = fontSize;
     this.text = text;
@@ -137,42 +103,7 @@ class ScoreTableText extends StatelessWidget {
   Widget build(BuildContext context) {
     return Text(
       text,
-      style: TextStyle(
-        fontSize: this.fontSize,
-        color: textColor
-      ),
+      style: TextStyle(fontSize: fontSize, color: textColor),
     );
   }
 }
-
-
-// class ListItem extends StatelessWidget{
-//   double parentHeight = 0, parentWidth = 0;
-//   // ListItem({Key? key}) : super(key: key);
-//   ListItem(double parentHeight, double parentWidth) {
-//     this.parentWidth = parentWidth;
-//     this.parentHeight = parentHeight;
-//   }
-//   @override
-//   Widget build(BuildContext context) {
-//     return Container(
-//       child: Row(
-//
-//       ),
-//     );
-//   }
-// }
-
-
-// Container(
-// width: parentWidth * 0.2,
-// height: parentHeight * 0.1  ,
-// decoration: BoxDecoration(
-// color: Colors.yellow
-// ),
-// child: Text("hello"),
-// )
-
-
-
-

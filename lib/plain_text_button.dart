@@ -1,27 +1,27 @@
-import 'dart:ffi';
 
 import 'package:flutter/material.dart';
 
-class PlainTextButton extends StatefulWidget {
-  PlainTextButton(
+class CustomTextButton extends StatefulWidget {
+  CustomTextButton(
       {super.key,
       required this.height,
       required this.width,
       required this.text,
-      required this.colors});
+      required this.colors,
+      required this.fontColor
+      });
 
   double height;
   double width;
   String text;
   List<Color> colors;
+  Color fontColor;
 
   @override
-  State<PlainTextButton> createState() => _PlainTextButtonState();
+  State<CustomTextButton> createState() => _CustomTextButtonState();
 }
 
-class _PlainTextButtonState extends State<PlainTextButton> {
-  // double parentHeight = MediaQuery.of(context).size.height;
-  // double parentWidth = 0;
+class _CustomTextButtonState extends State<CustomTextButton> {
   late List<Color> colors;
   @override
   void initState() {
@@ -49,7 +49,7 @@ class _PlainTextButtonState extends State<PlainTextButton> {
             child: Text(
               widget.text,
               style: TextStyle(
-                  color: Colors.white,
+                  color: widget.fontColor,
                   fontSize: widget.height * 0.5, //make this responsive
                   fontFamily: "Prompt-SemiBold"),
             ),

@@ -20,7 +20,6 @@ class QuestionWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      color: Colors.amber,
       width: width,
       height: height,
       child: Column(
@@ -36,7 +35,6 @@ class QuestionWidget extends StatelessWidget {
             height: height * 0.01,
           ),
           Container(
-            color: Colors.red,
             height: height * 0.5,
             width: width * 0.9,
             child: OptionList(context, options),
@@ -68,11 +66,12 @@ class QuestionWidget extends StatelessWidget {
               ),
               Container(
                 constraints: const BoxConstraints(maxWidth: 350),
-                child: PlainTextButton(
+                child: CustomTextButton(
                   height: height * 0.08,
                   width: width * 1,
                   text: options[index],
                   colors: const [Color(0xff2ab8bd), Color(0xff0b8fa3)],
+                  fontColor: Colors.white,
                 ),
               ),
             ],

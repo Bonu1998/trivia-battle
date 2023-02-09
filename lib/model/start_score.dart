@@ -1,5 +1,3 @@
-import 'package:flutter/rendering.dart';
-
 class StateScore{
   late int score;
   late String state;

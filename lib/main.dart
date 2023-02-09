@@ -45,8 +45,11 @@ class MyApp extends StatelessWidget {
         '/home': (context) => const Home(),
         '/register': (context) => const Register(),
         '/editions': (context) => Editions(),
-        '/listItems': (context) => Center(child: StateScoreList(0.8, 0.8, scores)),
+        '/listItems': (context) => Center(child: StateScoreList(MediaQuery.of(context).size.height * 0.9, MediaQuery.of(context).size.width, scores)),
         '/daily': (context) => DailyBattle(),
+        '/test': (context) => Center(
+          child: NumberIcon(MediaQuery.of(context).size.height * 0.3, MediaQuery.of(context).size.width * 0.3, 1),
+        )
         // '/menu': (context) => const Menu()
         // '/listItems': (context) => LayoutBuilder(
         //     builder: (context, constraints) {
